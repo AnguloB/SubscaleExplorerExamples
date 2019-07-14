@@ -1,0 +1,82 @@
+---
+title: "SubscaleExplorer example"
+author: "Angulo-Brunet, A"
+date: "7/14/2019"
+output: html_document
+---
+
+
+
+```{r, warning=FALSE}
+library(SubscaleExplorer)
+library(psych)
+Data <- read.csv("~/Data.txt", sep="")
+```
+
+
+```{r, warning=FALSE}
+getscale(Data, "reference.xlsx", column="Subscales")
+a<-unlist(output)
+a<-data.frame((vapply(output,unlist,unlist(output[[1]]))))
+
+for(i in 1:ncol(a)){
+  assign(names(output)[i], a[[i]])
+}
+```
+
+
+```{r, warning=FALSE}
+headTail(Data[output$vitalidad])
+```
+
+```{r, warning=FALSE}
+headTail(Data[vitalidad])
+```
+
+```{r, warning=FALSE}
+datos<-lapply(output, function(x) Data[x])
+```
+
+```{r, warning=FALSE}
+lapply(lapply(output, function(x) Data[x]), describeBy)
+```
+
+```{r, warning=FALSE}
+frequencies(Data[vitalidad])
+```
+
+```{r, warning=FALSE}
+frequencies(Data[vitalidad], prop = TRUE)*100
+```
+
+```{r, warning=FALSE}
+missingness(Data[vitalidad])
+```
+
+```{r, warning=FALSE}
+missingness(Data[vitalidad], pattern= TRUE)
+```
+
+```{r, warning=FALSE}
+freqbubble(frequencies(Data[vitalidad], prop=TRUE) , legend =FALSE)
+```
+
+```{r, warning=FALSE}
+boxPlot(Data[vitalidad])
+```
+
+```{r, warning=FALSE}
+violinPlot(Data[vitalidad])
+```
+
+
+```{r, warning=FALSE}
+uniqueValues(Data[vitalidad], group=Data$sexo)
+```
+
+
+```{r, warning=FALSE}
+designEffect(Data[vitalidad], cluster=Data$monitor)
+table(Data$monitor)
+```
+

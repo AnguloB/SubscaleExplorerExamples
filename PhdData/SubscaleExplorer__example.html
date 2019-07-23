@@ -476,7 +476,7 @@ for(i in 1:ncol(a)){
 ##      v06 23 18 18 22 18    0
 ##      v08 22 22 20 16 21    0
 ##      v10 22 21 19 20 18    0</code></pre>
-<pre class="r"><code>missingness(Data[vitalidad])</code></pre>
+<pre class="r"><code>missingness(Data[vitalidad], pattern= TRUE)</code></pre>
 <pre><code>## Loading required package: mice</code></pre>
 <pre><code>## Loading required package: lattice</code></pre>
 <pre><code>## 
@@ -484,31 +484,6 @@ for(i in 1:ncol(a)){
 <pre><code>## The following objects are masked from 'package:base':
 ## 
 ##     cbind, rbind</code></pre>
-<pre><code>## $`General Summary`
-##                              Description    Freq    Prop
-## 1                       CASE MISSINGNESS                
-## 2                                        ------- -------
-## 3          Cases with all items answered     645    0.81
-## 4             Cases with incomplete data     155    0.19
-## 5                                        ------- -------
-## 6  Cases with some or all items answered     800       1
-## 7     Cases with completely missing data       0       0
-## 8                ----------------------- ------- -------
-## 9                       CELL MISSINGNESS                
-## 10                           n variables       5        
-## 11                               n cases     800        
-## 12                       n missing cells     155        
-## 13         Total cases x Total variables    4000        
-## 14        Proportion of cell missingness         0.03875
-## 
-## $`Variable summary`
-##   variable  na prop.na
-## 1      v01 155   0.194
-## 2      v02   0   0.000
-## 3      v06   0   0.000
-## 4      v08   0   0.000
-## 5      v10   0   0.000</code></pre>
-<pre class="r"><code>missingness(Data[vitalidad], pattern= TRUE)</code></pre>
 <pre><code>## $`General Summary`
 ##                              Description    Freq    Prop
 ## 1                       CASE MISSINGNESS                
